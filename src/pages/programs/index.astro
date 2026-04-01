@@ -1,0 +1,216 @@
+---
+import Base from '../../layouts/Base.astro';
+import business from '../../data/business.json';
+
+const programCategories = [
+  {
+    name: 'Core Benefits',
+    description: 'Included with every membership.',
+    programs: [
+      {
+        title: 'Collective Purchasing Power',
+        body: 'Bulk fabric ordering at significantly better than 20% discounts. Consolidated foam and supplies purchasing with wholesale-plus pricing. Extended credit lines for materials and priority access to limited or hard-to-source specialty materials.',
+      },
+      {
+        title: 'New Build Catalog System',
+        body: 'Access to our exclusive library of hundreds of flat-packed sofa frames with comprehensive instructional videos. Online customization tools for your clients to visualize and personalize pieces, plus white-label marketing materials to present these as your own designs.',
+      },
+      {
+        title: 'Business Operations Support',
+        body: 'Advanced quoting system standardizing pricing and ensuring profitability. Project management tools designed for upholstery workflows, professional development workshops, certification programs, and industry market intelligence reports.',
+      },
+      {
+        title: 'Digital Presence & Marketing',
+        body: 'Profile in our nationwide directory of certified professionals. Local SEO support, online visibility enhancement, social media content packages, promotional materials, and client testimonial collection and reputation management tools.',
+      },
+    ],
+  },
+  {
+    name: 'Revenue Programs',
+    description: 'Commission-based participation. No upfront costs; you pay only when you earn.',
+    programs: [
+      {
+        title: 'Large Contract Bidding Consortium',
+        body: 'Collective bidding on hotel chains, corporate offices, and government contracts. Guild-managed project coordination for seamless execution, bonding and insurance coverage for large-scale projects, and fair work distribution among qualified members.',
+        link: '/programs/contracts',
+      },
+      {
+        title: 'Geo-Targeted Supply Network',
+        body: 'Your own locally branded upholstery supply website, managed through centralized inventory with local branding. Capture the DIY market and upsell to your professional services, creating passive income from your geographic territory.',
+      },
+      {
+        title: 'Upholstery Rescue Squad',
+        body: 'Premium lead generation through emergency response marketing for furniture disasters. A damage assessment app funneling qualified leads, insurance company partnerships for claim-based work, and restoration-focused consumer education that drives conversions.',
+      },
+      {
+        title: 'Viral Sofa Exclusive Designs',
+        body: 'Rights to produce trending designs from our popular content channels. Territorial exclusivity for manufacturing headline-grabbing pieces, seasonal collections driving consumer interest, and an authentication system protecting your exclusive rights.',
+      },
+      {
+        title: 'White-Label Furniture Line',
+        body: 'Guild-manufactured standard pieces you can brand as your own. Consistent quality control and production standards expand your catalog without expanding your workshop capacity, freeing you to focus on high-margin custom work.',
+      },
+      {
+        title: 'Designer Partnership Network',
+        body: 'Direct referrals from our network of interior designers. Preferred vendor status with architecture firms, collaborative project planning with design professionals, and consistently higher average project values with design-led clients.',
+      },
+    ],
+  },
+  {
+    name: 'Specialty Programs',
+    description: 'Advanced programs for members looking to diversify and future-proof their business.',
+    programs: [
+      {
+        title: 'Furniture Lifecycle Subscription',
+        body: 'Sign clients to multi-year furniture maintenance plans with scheduled refreshes and updates. Build predictable, recurring income streams independent of new sales, with client retention spanning decades rather than transactions.',
+      },
+      {
+        title: 'Heritage Scanning Service',
+        body: '3D scanning technology for precise replication and digital archiving of antique construction techniques. Premium pricing for museum-quality reproduction work and a growing proprietary database of historical designs.',
+      },
+      {
+        title: 'Carbon-Negative Furniture Line',
+        body: 'Certified sustainable materials with full carbon accounting. Marketing support for environmentally responsible positioning, premium pricing for conscientious consumers, and eligibility for government sustainability contracts.',
+      },
+      {
+        title: 'Equipment Leasing Program',
+        body: 'Access specialized machinery when you need it without capital investment. Try-before-you-buy technology evaluation, maintenance and upgrades handled by the Guild, and split costs of industrial equipment across multiple members.',
+      },
+      {
+        title: 'Business Succession & Transition',
+        body: 'Confidential succession planning for owners approaching retirement or considering a change. The Guild provides business valuation, transition structuring, and can acquire and continue operations under your established name, preserving your legacy, your staff, and your client relationships.',
+        link: '/succession',
+      },
+    ],
+  },
+];
+---
+
+<Base
+  title="Programs"
+  description="Explore the North American Upholstery Guild's membership programs, from collective purchasing and business tools to large contract bidding and designer partnerships."
+>
+  <!-- Page Header -->
+  <section class="page-header noise-grain">
+    <div class="container">
+      <h1>Programs</h1>
+      <hr class="divider divider-center page-divider" />
+      <p class="page-subtitle">
+        15 programs designed to strengthen every aspect of your upholstery business.
+      </p>
+    </div>
+  </section>
+
+  <!-- Programs -->
+  {programCategories.map(category => (
+    <section class="section">
+      <div class="container">
+        <h2>{category.name}</h2>
+        <hr class="divider" />
+        <p class="section-lead">{category.description}</p>
+
+        <div class="programs-grid">
+          {category.programs.map(program => (
+            <div class="program-card">
+              <h3>{program.title}</h3>
+              <p>{program.body}</p>
+              {program.link && <a href={program.link} class="program-link">Learn more</a>}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- CTA -->
+  <section class="section cta-section noise-grain">
+    <div class="container cta-inner">
+      <h2>Ready to Get Started?</h2>
+      <p>
+        All programs are available to Guild members. Core benefits are included
+        with your annual dues; revenue programs operate on a commission basis
+        with no upfront costs.
+      </p>
+      <a href="/membership" class="btn btn-accent">View Membership Details</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-header {
+    background: var(--color-primary);
+    color: #fff;
+    padding: 3.5rem 0;
+    text-align: center;
+  }
+
+  .page-header h1 { color: #fff; margin-bottom: 0.75rem; }
+  .page-divider { background: var(--color-accent); margin-bottom: 1rem; }
+  .page-subtitle { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin-inline: auto; }
+
+  .section:nth-child(odd) {
+    background: var(--color-bg-alt);
+  }
+
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .program-card {
+    padding: 1.75rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    border-left: 4px solid var(--color-primary);
+  }
+
+  .section:nth-child(odd) .program-card {
+    background: #fff;
+  }
+
+  .program-card h3 {
+    margin-bottom: 0.6rem;
+    color: var(--color-primary-dark);
+    font-size: 1.1rem;
+  }
+
+  .program-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.65;
+  }
+
+  .program-link {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .program-link:hover {
+    color: var(--color-primary-dark);
+  }
+
+  /* CTA */
+  .cta-section {
+    background: var(--color-primary-dark) !important;
+    color: #fff;
+    text-align: center;
+    padding: 4rem 0;
+  }
+
+  .cta-section h2 { color: #fff; margin-bottom: 0.75rem; }
+  .cta-inner p { font-size: 1.05rem; opacity: 0.9; max-width: 550px; margin: 0 auto 2rem; }
+
+  @media (max-width: 768px) {
+    .programs-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

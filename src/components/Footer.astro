@@ -1,0 +1,161 @@
+---
+import business from '../data/business.json';
+
+const footerLinks = [
+  { label: 'About', href: '/about' },
+  { label: 'Membership', href: '/membership' },
+  { label: 'Programs', href: '/programs' },
+  { label: 'Directory', href: '/directory' },
+  { label: 'Succession Planning', href: '/succession' },
+  { label: 'Contact', href: '/contact' },
+];
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <img src="/seal.svg" alt="" class="footer-crest" width="60" height="60" />
+      <div>
+        <p class="footer-name">{business.name}</p>
+        <p class="footer-tagline">Advancing the craft & building your business.</p>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <h4>Navigation</h4>
+      <ul>
+        {footerLinks.map(link => (
+          <li><a href={link.href}>{link.label}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Contact</h4>
+      <address>
+        <p>{business.address.streetAddress}</p>
+        <p>{business.address.addressLocality}, {business.address.addressRegion} {business.address.postalCode}</p>
+        <p><a href={`tel:${business.telephone}`}>{business.telephoneDisplay}</a></p>
+        <p><a href={`mailto:${business.email}`}>{business.email}</a></p>
+      </address>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p>&copy; {year} {business.name}. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-bg-dark);
+    color: #c8d0d0;
+    padding-top: 3rem;
+    position: relative;
+  }
+
+  .site-footer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('/linen.webp') repeat;
+    opacity: 0.06;
+    pointer-events: none;
+  }
+
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .footer-crest {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+  }
+
+  .footer-name {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.25rem;
+  }
+
+  .footer-tagline {
+    font-size: 0.85rem;
+    color: #8a9a9a;
+    font-style: italic;
+  }
+
+  .footer-links h4,
+  .footer-contact h4 {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-links ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .footer-links a {
+    font-size: 0.9rem;
+    color: #c8d0d0;
+    transition: color 0.15s;
+  }
+
+  .footer-links a:hover {
+    color: #fff;
+  }
+
+  .footer-contact address {
+    font-style: normal;
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .footer-contact a {
+    color: #c8d0d0;
+    transition: color 0.15s;
+  }
+
+  .footer-contact a:hover {
+    color: #fff;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid #2a3a3a;
+    padding: 1rem 0;
+  }
+
+  .footer-bottom p {
+    font-size: 0.8rem;
+    color: #6a7a7a;
+  }
+
+  @media (max-width: 768px) {
+    .footer-inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>

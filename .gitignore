@@ -1,0 +1,5 @@
+node_modules/
+dist/
+.astro/
+# Inkscape source files
+*-v2.svg

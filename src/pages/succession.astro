@@ -1,0 +1,273 @@
+---
+import Base from '../layouts/Base.astro';
+import business from '../data/business.json';
+---
+
+<Base
+  title="Succession Planning"
+  description="The North American Upholstery Guild helps upholstery business owners plan for retirement, transition their business, and preserve the legacy they've built."
+>
+  <!-- Page Header -->
+  <section class="page-header noise-grain">
+    <div class="container">
+      <h1>Business Succession & Transition</h1>
+      <hr class="divider divider-center page-divider" />
+      <p class="page-subtitle">
+        When you're ready to step back, your business doesn't have to close its doors.
+      </p>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="section">
+    <div class="container content-narrow">
+      <h2>Your Business Is Worth Preserving</h2>
+      <hr class="divider" />
+      <p>
+        You've spent decades building something real; a reputation, a client base,
+        a workshop full of hard-won knowledge. The question every experienced
+        upholsterer eventually faces is: what happens to all of this when I'm ready
+        to retire?
+      </p>
+      <p>
+        Too often the answer is "it just closes." The clients scatter, the equipment
+        gets sold at auction, and years of expertise walk out the door. The Guild
+        believes there's a better path.
+      </p>
+      <p>
+        Our Business Succession program is designed to help owners transition on
+        their own terms, whether that means finding a buyer, mentoring a successor,
+        or having the Guild itself step in to continue operations under your
+        established name.
+      </p>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2>How the Guild Helps</h2>
+      <hr class="divider" />
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <h3>Confidential Consultation</h3>
+          <p>
+            We start with a private conversation about your goals, your timeline,
+            and what matters most to you; whether that's maximizing value, ensuring
+            staff continuity, or preserving your brand in the community.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <h3>Business Valuation</h3>
+          <p>
+            Our team helps you understand what your business is actually worth. Your
+            equipment, client relationships, contracts, reputation, goodwill.
+            No guesswork, no lowballs.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <h3>Transition Planning</h3>
+          <p>
+            We work with you to structure a transition that fits your situation.
+            That could mean a full acquisition, a phased retirement where you
+            stay on in an advisory role, or connecting you with a qualified buyer
+            from within the Guild network.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">04</div>
+          <h3>Continuity & Legacy</h3>
+          <p>
+            When the Guild acquires a business, we keep the name on the door,
+            retain existing staff wherever possible, and honor the relationships
+            you've built. Your clients continue to receive the quality they expect.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who This Is For -->
+  <section class="section">
+    <div class="container content-narrow">
+      <h2>Who This Is For</h2>
+      <hr class="divider" />
+      <p>
+        This program is for upholstery business owners who are thinking about
+        the next chapter, whether retirement is five years away or five months away.
+        You don't need to have a decision made. You don't need to be a current
+        Guild member. You just need to be open to a conversation.
+      </p>
+      <p>
+        We work with shops of all sizes, from one-person operations to multi-employee
+        businesses. Every situation is different, and we tailor our approach accordingly.
+      </p>
+
+      <div class="who-list">
+        <div class="who-item">
+          <h4>Approaching Retirement</h4>
+          <p>You've been doing this for decades and you're starting to think about what comes next.</p>
+        </div>
+        <div class="who-item">
+          <h4>No Clear Successor</h4>
+          <p>Your children aren't interested in the trade, and you don't have an apprentice ready to take over.</p>
+        </div>
+        <div class="who-item">
+          <h4>Ready for a Change</h4>
+          <p>You still love the craft but the business side has worn you down. You'd rather do the work without running the shop.</p>
+        </div>
+        <div class="who-item">
+          <h4>Health or Life Changes</h4>
+          <p>Circumstances have changed and you need a reliable path to transition sooner than planned.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-section noise-grain">
+    <div class="container cta-inner">
+      <h2>Start the Conversation</h2>
+      <p>
+        There's no obligation and everything is confidential. Reach out when you're
+        ready. We're here to listen and help you think through your options.
+      </p>
+      <div class="cta-actions">
+        <a href={`tel:${business.telephone}`} class="btn btn-accent">Call {business.telephoneDisplay}</a>
+        <a href={`mailto:${business.email}?subject=Succession%20Planning%20Inquiry`} class="btn btn-cta-outline">Email Us</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-header {
+    background: var(--color-primary);
+    color: #fff;
+    padding: 3.5rem 0;
+    text-align: center;
+  }
+
+  .page-header h1 { color: #fff; margin-bottom: 0.75rem; }
+  .page-divider { background: var(--color-accent); margin-bottom: 1rem; }
+  .page-subtitle { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin-inline: auto; }
+
+  .content-narrow {
+    max-width: 750px;
+  }
+
+  .content-narrow p {
+    color: var(--color-text-muted);
+    font-size: 1.02rem;
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+  }
+
+  /* Steps */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .step-card {
+    padding: 1.75rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    border-top: 3px solid var(--color-accent);
+  }
+
+  .step-number {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--color-accent);
+    opacity: 0.5;
+    margin-bottom: 0.75rem;
+  }
+
+  .step-card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .step-card p {
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+    line-height: 1.65;
+  }
+
+  /* Who List */
+  .who-list {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .who-item {
+    padding: 1.25rem 1.5rem;
+    border-left: 3px solid var(--color-primary);
+    background: var(--color-bg-alt);
+    border-radius: 0 6px 6px 0;
+  }
+
+  .who-item h4 {
+    font-family: var(--font-body);
+    margin-bottom: 0.3rem;
+    color: var(--color-primary-dark);
+  }
+
+  .who-item p {
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0;
+  }
+
+  /* CTA */
+  .cta-section {
+    background: var(--color-primary-dark);
+    color: #fff;
+    text-align: center;
+    padding: 4rem 0;
+  }
+
+  .cta-section h2 { color: #fff; margin-bottom: 0.75rem; }
+  .cta-inner p { font-size: 1.05rem; opacity: 0.9; max-width: 550px; margin: 0 auto 2rem; }
+
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-cta-outline {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    color: #fff;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .btn-cta-outline:hover {
+    background: #fff;
+    color: var(--color-primary-dark);
+  }
+
+  @media (max-width: 768px) {
+    .steps-grid { grid-template-columns: 1fr; }
+  }
+</style>

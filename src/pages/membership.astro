@@ -1,0 +1,336 @@
+---
+import Base from '../layouts/Base.astro';
+import business from '../data/business.json';
+---
+
+<Base
+  title="Membership"
+  description="Join the North American Upholstery Guild. Annual membership includes collective purchasing, business tools, marketing support, and access to revenue-generating programs."
+>
+  <!-- Page Header -->
+  <section class="page-header noise-grain">
+    <div class="container">
+      <h1>Membership</h1>
+      <hr class="divider divider-center page-divider" />
+      <p class="page-subtitle">
+        Everything your business needs to compete, grow, and build lasting profitability.
+      </p>
+    </div>
+  </section>
+
+  <!-- Overview -->
+  <section class="section">
+    <div class="container content-narrow">
+      <h2>What Membership Provides</h2>
+      <hr class="divider" />
+      <p>
+        Guild membership is designed for working upholstery professionals who want
+        to strengthen their business without sacrificing their independence. As a member,
+        you gain immediate access to collective purchasing, professional tools, and a
+        continent-wide network of your peers.
+      </p>
+      <p>
+        Beyond the core benefits, members can participate in revenue-generating programs, from <a href="/programs/contracts" class="inline-link">large contract bidding</a> to geo-targeted supply networks, each structured so that you only pay when you earn.
+      </p>
+    </div>
+  </section>
+
+  <!-- Benefits Summary -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2>Core Membership Benefits</h2>
+      <hr class="divider" />
+
+      <div class="benefits-list">
+        <div class="benefit-row">
+          <div class="benefit-number">01</div>
+          <div>
+            <h3>Collective Purchasing Power</h3>
+            <p>Bulk fabric and foam ordering at wholesale-plus pricing. Extended credit lines for materials. Priority access to specialty and hard-to-source materials.</p>
+          </div>
+        </div>
+
+        <div class="benefit-row">
+          <div class="benefit-number">02</div>
+          <div>
+            <h3>New Build Catalog System</h3>
+            <p>Access to our library of flat-packed sofa frames with instructional videos, online customization tools for your clients, and white-label marketing materials.</p>
+          </div>
+        </div>
+
+        <div class="benefit-row">
+          <div class="benefit-number">03</div>
+          <div>
+            <h3>Business Operations Support</h3>
+            <p>Professional quoting systems, project management tools for upholstery workflows, professional development workshops, and industry market intelligence.</p>
+          </div>
+        </div>
+
+        <div class="benefit-row">
+          <div class="benefit-number">04</div>
+          <div>
+            <h3>Digital Presence & Marketing</h3>
+            <p>Profile in our nationwide directory, local SEO support, social media content packages, and reputation management tools.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="programs-link">
+        <p>Members also gain access to <strong>11 additional programs</strong>, from <a href="/programs/contracts" class="inline-link">large contract bidding</a> and designer partnerships to confidential <a href="/succession" class="inline-link">business succession planning</a>.</p>
+        <a href="/programs" class="btn btn-outline">View All Programs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dues -->
+  <section class="section">
+    <div class="container dues-section">
+      <h2>Annual Dues</h2>
+      <hr class="divider divider-center" />
+
+      <div class="dues-card">
+        <div class="dues-amount">$1,995</div>
+        <div class="dues-period">per year</div>
+        <ul class="dues-includes">
+          <li>All core business services</li>
+          <li>Nationwide directory listing</li>
+          <li>Basic access to all programs</li>
+          <li>Fully tax-deductible as a business expense</li>
+        </ul>
+        <hr class="dues-sep" />
+        <p class="dues-note">
+          Revenue programs operate on a commission basis (10–25%) with no upfront costs.
+          You pay only when you earn.
+        </p>
+      </div>
+
+      <div class="territory-note">
+        <h3>Territory Protection</h3>
+        <p>
+          Geographic exclusivity is available in select programs. Territories are
+          assigned on a population basis, first-come, first-served. Early members
+          secure priority territory selection.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founding Member CTA -->
+  <section class="section cta-section noise-grain">
+    <div class="container cta-inner">
+      <h2>Founding Member Opportunity</h2>
+      <p>
+        Join within our founding period to secure founding member status with a
+        lifetime dues rate lock and priority territory selection.
+      </p>
+      <div class="cta-actions">
+        <a href={`mailto:${business.email}?subject=Membership%20Inquiry`} class="btn btn-accent">Inquire About Membership</a>
+        <a href="/contact" class="btn btn-cta-outline">Contact Us</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-header {
+    background: var(--color-primary);
+    color: #fff;
+    padding: 3.5rem 0;
+    text-align: center;
+  }
+
+  .page-header h1 { color: #fff; margin-bottom: 0.75rem; }
+  .page-divider { background: var(--color-accent); margin-bottom: 1rem; }
+  .page-subtitle { font-size: 1.1rem; opacity: 0.9; max-width: 550px; margin-inline: auto; }
+
+  .content-narrow {
+    max-width: 750px;
+  }
+
+  .content-narrow p {
+    color: var(--color-text-muted);
+    font-size: 1.02rem;
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+  }
+
+  /* Benefits List */
+  .benefits-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .benefit-row {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding: 1.5rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+  }
+
+  .benefit-number {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--color-primary);
+    opacity: 0.3;
+    flex-shrink: 0;
+    min-width: 40px;
+  }
+
+  .benefit-row h3 {
+    margin-bottom: 0.4rem;
+    color: var(--color-text);
+  }
+
+  .benefit-row p {
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  .programs-link {
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+    background: var(--color-primary-light);
+    border-radius: 6px;
+    text-align: center;
+  }
+
+  .programs-link p {
+    margin-bottom: 1rem;
+    color: var(--color-text-muted);
+  }
+
+  .inline-link {
+    color: var(--color-primary);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .inline-link:hover {
+    color: var(--color-primary-dark);
+  }
+
+  /* Dues */
+  .dues-section {
+    text-align: center;
+    max-width: 600px;
+  }
+
+  .dues-card {
+    margin-top: 2rem;
+    padding: 2.5rem;
+    border: 2px solid var(--color-primary);
+    border-radius: 8px;
+    background: #fff;
+  }
+
+  .dues-amount {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--color-primary);
+    line-height: 1;
+  }
+
+  .dues-period {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .dues-includes {
+    text-align: left;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .dues-includes li {
+    padding: 0.4rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+  }
+
+  .dues-includes li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-accent);
+  }
+
+  .dues-sep {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: 1.5rem 0;
+  }
+
+  .dues-note {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  .territory-note {
+    margin-top: 2.5rem;
+    text-align: left;
+    max-width: 550px;
+    margin-inline: auto;
+  }
+
+  .territory-note h3 {
+    margin-bottom: 0.5rem;
+    color: var(--color-primary-dark);
+  }
+
+  .territory-note p {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+
+  /* CTA */
+  .cta-section {
+    background: var(--color-primary-dark);
+    color: #fff;
+    text-align: center;
+    padding: 4rem 0;
+  }
+
+  .cta-section h2 { color: #fff; margin-bottom: 0.75rem; }
+  .cta-inner p { font-size: 1.05rem; opacity: 0.9; max-width: 550px; margin: 0 auto 2rem; }
+
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-cta-outline {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    color: #fff;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .btn-cta-outline:hover {
+    background: #fff;
+    color: var(--color-primary-dark);
+  }
+</style>

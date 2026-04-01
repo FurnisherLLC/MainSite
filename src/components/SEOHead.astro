@@ -1,0 +1,50 @@
+---
+import { SEO } from 'astro-seo';
+import business from '../data/business.json';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const fullTitle = title === 'Home'
+  ? `${business.name} |Advancing the Craft`
+  : `${title} |${business.name}`;
+const canonicalURL = new URL(Astro.url.pathname, business.url).toString();
+---
+
+<SEO
+  title={fullTitle}
+  description={description}
+  canonical={canonicalURL}
+  openGraph={{
+    basic: {
+      title: fullTitle,
+      type: 'website',
+      image: `${business.url}/crest-v3.svg`,
+    },
+    optional: {
+      description: description,
+      siteName: business.name,
+    },
+  }}
+/>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": business.name,
+  "url": business.url,
+  "email": business.email,
+  "telephone": business.telephone,
+  "description": business.description,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": business.address.streetAddress,
+    "addressLocality": business.address.addressLocality,
+    "addressRegion": business.address.addressRegion,
+    "postalCode": business.address.postalCode,
+    "addressCountry": business.address.addressCountry,
+  },
+})} />

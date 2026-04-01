@@ -1,0 +1,282 @@
+---
+import Base from '../layouts/Base.astro';
+import business from '../data/business.json';
+
+const advisors = [
+  { name: 'John B.', title: 'Director, Operations', role: 'Chair' },
+  { name: 'Kayman M.', title: 'Director, Business Development', role: '' },
+  { name: 'Ken M.', title: 'Master Upholsterer', role: '' },
+  { name: 'Andrew E.', title: 'Chief Financial Officer', role: '' },
+  { name: 'Stephanie N.', title: 'Creative Director', role: '' },
+  { name: 'Nick B.', title: 'Director, Supply Chain', role: '' },
+  { name: 'Nick S.', title: 'Director, Marketing', role: '' },
+];
+---
+
+<Base
+  title="About"
+  description="Learn about the North American Upholstery Guild, our mission, leadership, and commitment to advancing the upholstery trade across North America."
+>
+  <!-- Page Header -->
+  <section class="page-header noise-grain">
+    <div class="container">
+      <h1>About the Guild</h1>
+      <hr class="divider divider-center page-divider" />
+      <p class="page-subtitle">
+        A trade association built by upholstery professionals, for upholstery professionals.
+      </p>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="section">
+    <div class="container content-narrow">
+      <h2>Our Mission</h2>
+      <hr class="divider" />
+      <p>
+        The upholstery trade is at a crossroads. Decades of knowledge risk being lost
+        as experienced craftspeople approach retirement without clear succession plans.
+        Meanwhile, independent shops face mounting pressure from material costs, changing
+        consumer expectations, and a marketplace that increasingly favors volume over quality.
+      </p>
+      <p>
+        The North American Upholstery Guild exists to change that trajectory. We believe
+        that skilled, independent upholsterers are the backbone of this industry, and
+        that by working together, they can secure a future that respects both the craft
+        and the craftsperson.
+      </p>
+      <p>
+        Our mission is to provide the collective infrastructure that allows
+        independent upholstery businesses to thrive through better purchasing power, modern
+        business tools, access to contracts that were previously out of reach, and a
+        professional network that turns isolated shops into a connected, resilient industry.
+      </p>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2>What We Stand For</h2>
+      <hr class="divider" />
+
+      <div class="values-grid">
+        <div class="value-item">
+          <h3>Craft Excellence</h3>
+          <p>
+            Quality work is the foundation of a sustainable business. We support
+            professional development, certification, and standards that elevate
+            the entire trade.
+          </p>
+        </div>
+        <div class="value-item">
+          <h3>Independence</h3>
+          <p>
+            Your shop is your shop. Guild membership strengthens your business without
+            compromising your autonomy, your brand, or your creative judgment.
+          </p>
+        </div>
+        <div class="value-item">
+          <h3>Collective Strength</h3>
+          <p>
+            What one shop can't achieve alone, a network of professionals can.
+            From purchasing to bidding to marketing, the Guild multiplies your reach.
+          </p>
+        </div>
+        <div class="value-item">
+          <h3>Legacy & Continuity</h3>
+          <p>
+            The skills and knowledge of experienced upholsterers are irreplaceable.
+            We're committed to preserving the trade and ensuring its future through
+            mentorship, documentation, and <a href="/succession" class="value-link">succession planning</a>
+            including helping owners <a href="/succession" class="value-link">transition their businesses</a> when the time is right.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Board of Advisors -->
+  <section class="section">
+    <div class="container">
+      <h2>Board of Advisors</h2>
+      <hr class="divider" />
+      <p class="section-lead">
+        The Guild's leadership brings together over a century of hands-on experience in
+        upholstery, business management, and industry advocacy.
+      </p>
+
+      <div class="advisors-grid">
+        {advisors.map(advisor => (
+          <div class="advisor-card">
+            <div class="advisor-monogram">{advisor.name.charAt(0)}</div>
+            <div class="advisor-info">
+              <h4>{advisor.name}</h4>
+              <p class="advisor-title">{advisor.title}</p>
+              {advisor.role && <p class="advisor-role">{advisor.role}</p>}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-section noise-grain">
+    <div class="container cta-inner">
+      <h2>Join a Community of Professionals</h2>
+      <p>
+        The Guild is growing. If you're an upholstery professional looking for
+        a stronger foundation for your business, we'd like to hear from you.
+      </p>
+      <a href="/membership" class="btn btn-accent">Explore Membership</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* Page Header */
+  .page-header {
+    background: var(--color-primary);
+    color: #fff;
+    padding: 3.5rem 0;
+    text-align: center;
+  }
+
+  .page-header h1 {
+    color: #fff;
+    margin-bottom: 0.75rem;
+  }
+
+  .page-divider {
+    background: var(--color-accent);
+    margin-bottom: 1rem;
+  }
+
+  .page-subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 550px;
+    margin-inline: auto;
+  }
+
+  /* Content */
+  .content-narrow {
+    max-width: 750px;
+  }
+
+  .content-narrow p {
+    color: var(--color-text-muted);
+    font-size: 1.02rem;
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+  }
+
+  /* Values */
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .value-item {
+    padding: 1.5rem;
+    border-left: 3px solid var(--color-accent);
+  }
+
+  .value-item h3 {
+    margin-bottom: 0.5rem;
+    color: var(--color-primary-dark);
+  }
+
+  .value-item p {
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  .value-link {
+    color: var(--color-primary);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .value-link:hover {
+    color: var(--color-primary-dark);
+  }
+
+  /* Advisors */
+  .advisors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .advisor-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    border-left: 3px solid var(--color-primary);
+  }
+
+  .advisor-monogram {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .advisor-card h4 {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .advisor-title {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    line-height: 1.3;
+  }
+
+  .advisor-role {
+    font-size: 0.78rem;
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-top: 0.1rem;
+  }
+
+  /* CTA */
+  .cta-section {
+    background: var(--color-primary-dark);
+    color: #fff;
+    text-align: center;
+    padding: 4rem 0;
+  }
+
+  .cta-section h2 {
+    color: #fff;
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-inner p {
+    font-size: 1.05rem;
+    opacity: 0.9;
+    max-width: 550px;
+    margin: 0 auto 2rem;
+  }
+</style>

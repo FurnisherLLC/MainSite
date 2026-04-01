@@ -1,0 +1,17 @@
+{
+  "name": "North American Upholstery Guild",
+  "shortName": "NAUG",
+  "url": "https://upholsteryguild.org",
+  "telephone": "+1-613-799-1112",
+  "telephoneDisplay": "(613) 799-1112",
+  "email": "info@upholsteryguild.org",
+  "address": {
+    "streetAddress": "107 Colonnade Rd S #7",
+    "addressLocality": "Nepean",
+    "addressRegion": "ON",
+    "postalCode": "K2E 7M3",
+    "addressCountry": "CA"
+  },
+  "founded": "2011",
+  "description": "The North American Upholstery Guild is a professional trade association dedicated to advancing the craft of upholstery and supporting independent upholstery businesses across North America."
+}

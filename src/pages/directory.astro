@@ -1,0 +1,78 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Member Directory"
+  description="The North American Upholstery Guild Member Directory: a nationwide listing of certified upholstery professionals."
+>
+  <section class="page-header noise-grain">
+    <div class="container">
+      <h1>Member Directory</h1>
+      <hr class="divider divider-center page-divider" />
+      <p class="page-subtitle">
+        Certified upholstery professionals across North America.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container directory-content">
+      <div class="directory-notice">
+        <h2>Directory Access</h2>
+        <hr class="divider" />
+        <p>
+          The Guild's Member Directory is currently available to active members
+          and will be opening to the public in the coming months. The directory
+          will provide consumers and industry partners with a searchable listing
+          of certified upholstery professionals organized by region and specialty.
+        </p>
+        <p>
+          If you are an active Guild member and need directory access,
+          please contact us at <a href="mailto:info@upholsteryguild.org">info@upholsteryguild.org</a>.
+        </p>
+        <p>
+          If you are looking for an upholstery professional in your area,
+          please <a href="/contact">get in touch</a> and we'll connect you with
+          a qualified member near you.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-header {
+    background: var(--color-primary);
+    color: #fff;
+    padding: 3.5rem 0;
+    text-align: center;
+  }
+
+  .page-header h1 { color: #fff; margin-bottom: 0.75rem; }
+  .page-divider { background: var(--color-accent); margin-bottom: 1rem; }
+  .page-subtitle { font-size: 1.1rem; opacity: 0.9; }
+
+  .directory-content {
+    max-width: 700px;
+    padding-block: 1rem;
+  }
+
+  .directory-notice p {
+    color: var(--color-text-muted);
+    font-size: 1.02rem;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+
+  .directory-notice a {
+    color: var(--color-primary);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .directory-notice a:hover {
+    color: var(--color-primary-dark);
+  }
+</style>

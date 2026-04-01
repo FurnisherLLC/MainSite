@@ -1,0 +1,342 @@
+---
+import Base from '../../layouts/Base.astro';
+import business from '../../data/business.json';
+---
+
+<Base
+  title="Large Contract Bidding"
+  description="The North American Upholstery Guild's contract bidding consortium allows independent upholsterers to collectively bid on hotel, corporate, and government projects."
+>
+  <!-- Page Header -->
+  <section class="page-header noise-grain">
+    <div class="container">
+      <h1>Large Contract Bidding Consortium</h1>
+      <hr class="divider divider-center page-divider" />
+      <p class="page-subtitle">
+        Your small shop, backed by a continent-wide network of qualified professionals.
+      </p>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="section">
+    <div class="container content-narrow">
+      <h2>Compete for Work You Couldn't Touch Alone</h2>
+      <hr class="divider" />
+      <p>
+        Hotel chains. Corporate headquarters. Government buildings. Municipal
+        transit authorities. These contracts represent some of the most lucrative
+        and stable work in the upholstery trade, and they've historically been
+        locked behind requirements that no independent shop can meet on its own.
+      </p>
+      <p>
+        Minimum bonding thresholds. Liability insurance floors. Capacity guarantees.
+        Multi-site delivery timelines. The barriers aren't about skill. They're
+        about scale. A one-person shop with thirty years of experience gets passed
+        over in favor of a factory operation, not because the work is better, but
+        because the paperwork is.
+      </p>
+      <p>
+        The Guild's Contract Bidding Consortium changes that equation. When you bid
+        through the Guild, you bid with the collective capacity, insurance, and
+        bonding of the entire membership network behind you.
+      </p>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2>How the Consortium Works</h2>
+      <hr class="divider" />
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <h3>Opportunity Identification</h3>
+          <p>
+            The Guild monitors public and private procurement channels for upholstery
+            and reupholstery contracts across North America. When a viable opportunity
+            surfaces, qualified members in the relevant region are notified.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <h3>Collective Bid Preparation</h3>
+          <p>
+            The Guild assembles a bid package that meets all bonding, insurance, and
+            capacity requirements. Individual members contribute their expertise and
+            availability; the Guild handles compliance, documentation, and submission.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <h3>Project Coordination</h3>
+          <p>
+            When a contract is awarded, the Guild manages project coordination:
+            scheduling, quality control, logistics, and client communication. You
+            focus on the work itself, not the project management overhead.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">04</div>
+          <h3>Fair Work Distribution</h3>
+          <p>
+            Work is distributed among qualified members based on proximity, capacity,
+            and specialization. Every participating member gets a fair share, and
+            compensation is transparent and standardized.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What the Guild Provides -->
+  <section class="section">
+    <div class="container content-narrow">
+      <h2>What the Guild Brings to the Table</h2>
+      <hr class="divider" />
+
+      <div class="provides-list">
+        <div class="provides-item">
+          <h3>Bonding & Insurance</h3>
+          <p>
+            Large contracts require surety bonds and commercial liability coverage
+            that would be prohibitively expensive for an individual shop. The Guild
+            carries consortium-level bonding and insurance, qualifying the collective
+            for projects that demand seven-figure coverage.
+          </p>
+        </div>
+
+        <div class="provides-item">
+          <h3>Capacity Guarantees</h3>
+          <p>
+            When a hotel chain needs 400 rooms reupholstered in 60 days, no single
+            shop can make that promise. A network of Guild members across the region
+            can, and deliver consistent quality across every room.
+          </p>
+        </div>
+
+        <div class="provides-item">
+          <h3>Professional Bid Packages</h3>
+          <p>
+            Government and corporate procurement offices expect a specific standard
+            of documentation. The Guild's bid packages meet institutional requirements
+            for compliance, diversity reporting, safety certification, and quality
+            assurance. These are details that would take an independent shop weeks to assemble.
+          </p>
+        </div>
+
+        <div class="provides-item">
+          <h3>Ongoing Client Relationships</h3>
+          <p>
+            One successful contract leads to another. The Guild maintains relationships
+            with procurement managers, property groups, and facilities directors,
+            building a pipeline of repeat work that flows to participating members
+            year after year.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Types of Contracts -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2>Types of Contracts</h2>
+      <hr class="divider" />
+
+      <div class="contracts-grid">
+        <div class="contract-type">
+          <h3>Hospitality</h3>
+          <p>Hotels, resorts, and conference centers. Lobby furniture, guest room seating, restaurant banquettes, and poolside furnishings.</p>
+        </div>
+        <div class="contract-type">
+          <h3>Corporate</h3>
+          <p>Office buildings, co-working spaces, and executive suites. Task seating, lounge areas, boardroom chairs, and reception furniture.</p>
+        </div>
+        <div class="contract-type">
+          <h3>Government & Municipal</h3>
+          <p>Courthouses, libraries, transit authorities, and public buildings. Institutional seating, auditorium refurbishment, and fleet vehicle upholstery.</p>
+        </div>
+        <div class="contract-type">
+          <h3>Healthcare</h3>
+          <p>Hospitals, clinics, and long-term care facilities. Waiting room seating, patient furniture, and specialized medical upholstery with antimicrobial requirements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-section noise-grain">
+    <div class="container cta-inner">
+      <h2>Interested in Contract Work?</h2>
+      <p>
+        Guild members can opt into the Contract Bidding Consortium at any time.
+        If you're not yet a member, this program alone can pay for your annual
+        dues many times over.
+      </p>
+      <div class="cta-actions">
+        <a href="/membership" class="btn btn-accent">View Membership</a>
+        <a href={`mailto:${business.email}?subject=Contract%20Bidding%20Inquiry`} class="btn btn-cta-outline">Ask About Contracts</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-header {
+    background: var(--color-primary);
+    color: #fff;
+    padding: 3.5rem 0;
+    text-align: center;
+  }
+
+  .page-header h1 { color: #fff; margin-bottom: 0.75rem; }
+  .page-divider { background: var(--color-accent); margin-bottom: 1rem; }
+  .page-subtitle { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin-inline: auto; }
+
+  .content-narrow {
+    max-width: 750px;
+  }
+
+  .content-narrow p {
+    color: var(--color-text-muted);
+    font-size: 1.02rem;
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+  }
+
+  /* Steps */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .step-card {
+    padding: 1.75rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    border-top: 3px solid var(--color-accent);
+  }
+
+  .step-number {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--color-accent);
+    opacity: 0.5;
+    margin-bottom: 0.75rem;
+  }
+
+  .step-card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .step-card p {
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+    line-height: 1.65;
+  }
+
+  /* Provides */
+  .provides-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .provides-item {
+    padding: 1.25rem 1.5rem;
+    border-left: 3px solid var(--color-primary);
+    background: var(--color-bg-alt);
+    border-radius: 0 6px 6px 0;
+  }
+
+  .provides-item h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
+    color: var(--color-primary-dark);
+  }
+
+  .provides-item p {
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0;
+    line-height: 1.65;
+  }
+
+  /* Contract types */
+  .contracts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .contract-type {
+    padding: 1.5rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+  }
+
+  .contract-type h3 {
+    margin-bottom: 0.4rem;
+    color: var(--color-primary-dark);
+    font-size: 1.05rem;
+  }
+
+  .contract-type p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  /* CTA */
+  .cta-section {
+    background: var(--color-primary-dark);
+    color: #fff;
+    text-align: center;
+    padding: 4rem 0;
+  }
+
+  .cta-section h2 { color: #fff; margin-bottom: 0.75rem; }
+  .cta-inner p { font-size: 1.05rem; opacity: 0.9; max-width: 550px; margin: 0 auto 2rem; }
+
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-cta-outline {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    color: #fff;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .btn-cta-outline:hover {
+    background: #fff;
+    color: var(--color-primary-dark);
+  }
+
+  @media (max-width: 768px) {
+    .steps-grid { grid-template-columns: 1fr; }
+    .contracts-grid { grid-template-columns: 1fr; }
+  }
+</style>

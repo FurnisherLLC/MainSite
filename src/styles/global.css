@@ -1,0 +1,185 @@
+/* ===== Reset ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+
+/* ===== Custom Properties ===== */
+:root {
+  --color-primary: #0d7377;
+  --color-primary-dark: #095456;
+  --color-primary-light: #e6f2f2;
+  --color-text: #1a1a1a;
+  --color-text-muted: #4a4a4a;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f5f7f7;
+  --color-bg-dark: #1a2a2a;
+  --color-accent: #c4820e;
+  --color-accent-light: #d49a2e;
+  --color-border: #dde2e2;
+  --font-display: 'Merriweather', Georgia, 'Times New Roman', serif;
+  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --max-width: 1100px;
+  --gap: 2rem;
+}
+
+/* ===== Typography ===== */
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  line-height: 1.3;
+  color: var(--color-text);
+}
+
+h1 { font-size: clamp(1.75rem, 4vw, 2.75rem); }
+h2 { font-size: clamp(1.4rem, 3vw, 2rem); }
+h3 { font-size: 1.2rem; }
+h4 { font-size: 1.05rem; }
+
+p + p { margin-top: 1em; }
+
+/* ===== Utilities ===== */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  letter-spacing: 0.02em;
+}
+
+.btn:active { transform: scale(0.97); }
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-outline:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-accent {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.btn-accent:hover {
+  background: #a36a08;
+}
+
+/* ===== Sections ===== */
+.section {
+  padding: 4rem 0;
+}
+
+.section-alt {
+  background: var(--color-bg-alt);
+  position: relative;
+}
+
+.section-alt::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('/linen.webp') repeat;
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section-alt > * {
+  position: relative;
+  z-index: 1;
+}
+
+.section h2 {
+  margin-bottom: 1rem;
+}
+
+.section-lead {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin-bottom: 2.5rem;
+}
+
+/* ===== Dividers ===== */
+.divider {
+  width: 60px;
+  height: 3px;
+  background: var(--color-accent);
+  border: none;
+  margin: 1rem 0 1.5rem;
+}
+
+.divider-center {
+  margin-inline: auto;
+}
+
+/* ===== Texture: noise grain for teal headers ===== */
+.noise-grain {
+  position: relative;
+  isolation: isolate;
+}
+
+.noise-grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  opacity: 0.06;
+  background-image: url('/noise.png');
+  background-size: 200px 200px;
+  background-repeat: repeat;
+}
+
+.noise-grain > * {
+  position: relative;
+  z-index: 2;
+}

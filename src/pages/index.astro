@@ -1,0 +1,313 @@
+---
+import Base from '../layouts/Base.astro';
+import business from '../data/business.json';
+---
+
+<Base
+  title="Home"
+  description="The North American Upholstery Guild is a professional trade association supporting independent upholstery businesses with collective purchasing, business tools, and revenue programs."
+>
+  <!-- Hero -->
+  <section class="hero noise-grain">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <h1>North American Upholstery Guild</h1>
+      <p class="hero-tagline">Advancing the craft & building your business.</p>
+      <hr class="divider divider-center hero-divider" />
+      <p class="hero-sub">
+        A professional trade association dedicated to the success of independent
+        upholstery businesses across North America.
+      </p>
+      <div class="hero-actions">
+        <a href="/membership" class="btn btn-accent">Explore Membership</a>
+        <a href="/about" class="btn btn-hero-outline">About the Guild</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Benefits -->
+  <section class="section">
+    <div class="container">
+      <h2>Why Upholsterers Join the Guild</h2>
+      <hr class="divider" />
+      <p class="section-lead">
+        The Guild provides the resources, buying power, and professional network that
+        independent shops need to compete and thrive in today's market.
+      </p>
+
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+          </div>
+          <h3>Collective Purchasing</h3>
+          <p>Bulk fabric, foam, and supplies at wholesale pricing. Better margins without the volume requirements.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>Business Tools</h3>
+          <p>Professional quoting systems, project management, and digital marketing built for upholstery workflows.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3>Large Contract Access</h3>
+          <p>Bid collectively on hotel, corporate, and government contracts. Your small shop, our collective muscle.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          </div>
+          <h3>Industry Network</h3>
+          <p>Connect with designer partnerships, territory-based supply opportunities, and a nationwide directory of certified professionals.</p>
+        </div>
+      </div>
+
+      <div class="benefits-cta">
+        <a href="/programs" class="btn btn-outline">View All Programs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Preview -->
+  <section class="section section-alt">
+    <div class="container about-preview">
+      <h2>Built by Upholsterers, for Upholsterers</h2>
+      <hr class="divider" />
+      <p>
+        The North American Upholstery Guild was founded on a simple premise: independent
+        upholstery professionals deserve the same advantages that large manufacturers
+        enjoy. Our members retain their independence, their identity, and their craft
+        while gaining the collective strength of a continent-wide network.
+      </p>
+      <p>
+        Whether you're growing your shop, looking to compete for larger contracts,
+        or <a href="/succession" class="about-link">planning for the day you step back</a>,
+        the Guild provides the infrastructure and support to help you on your terms.
+      </p>
+      <a href="/about" class="btn btn-primary about-btn">Learn About the Guild</a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-section noise-grain">
+    <div class="container cta-inner">
+      <h2>Ready to Strengthen Your Business?</h2>
+      <p>Founding memberships are now open. Secure your territory and lock in your dues rate.</p>
+      <div class="cta-actions">
+        <a href="/membership" class="btn btn-accent">Apply for Membership</a>
+        <a href={`mailto:${business.email}`} class="btn btn-cta-outline">Contact Us</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* Hero */
+  .hero {
+    position: relative;
+    color: #fff;
+    padding: 6rem 0 5.5rem;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: url('/splash.webp') center/cover no-repeat;
+    z-index: 0;
+  }
+
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.03) 2px,
+        rgba(0, 0, 0, 0.03) 4px
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(26, 22, 15, 0.7) 0%,
+        rgba(45, 35, 18, 0.55) 50%,
+        rgba(9, 60, 62, 0.75) 100%
+      );
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 {
+    color: #fff;
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.02em;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-tagline {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-style: italic;
+    opacity: 0.9;
+    margin-bottom: 1rem;
+  }
+
+  .hero-divider {
+    background: var(--color-accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    max-width: 580px;
+    margin: 0 auto 2rem;
+    opacity: 0.92;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-hero-outline {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    color: #fff;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .btn-hero-outline:hover {
+    background: #fff;
+    color: var(--color-primary);
+  }
+
+  /* Benefits */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.75rem;
+    margin-top: 2rem;
+  }
+
+  .benefit-card {
+    padding: 1.75rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    border-top: 3px solid var(--color-primary);
+  }
+
+  .benefit-icon {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+
+  .benefit-card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .benefit-card p {
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  .benefits-cta {
+    text-align: center;
+    margin-top: 2.5rem;
+  }
+
+  /* About Preview */
+  .about-preview {
+    max-width: 750px;
+  }
+
+  .about-preview p {
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+  }
+
+  .about-link {
+    color: var(--color-primary);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .about-link:hover {
+    color: var(--color-primary-dark);
+  }
+
+  .about-btn {
+    margin-top: 1rem;
+  }
+
+  /* CTA */
+  .cta-section {
+    background: var(--color-primary-dark);
+    color: #fff;
+    text-align: center;
+    padding: 4rem 0;
+  }
+
+  .cta-section h2 {
+    color: #fff;
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-inner p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-cta-outline {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    color: #fff;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .btn-cta-outline:hover {
+    background: #fff;
+    color: var(--color-primary-dark);
+  }
+
+  @media (max-width: 768px) {
+    .hero { padding: 3.5rem 0; }
+  }
+</style>

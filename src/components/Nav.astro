@@ -1,0 +1,281 @@
+---
+import business from '../data/business.json';
+
+const navLinks = [
+  { label: 'About', href: '/about' },
+  { label: 'Membership', href: '/membership' },
+  {
+    label: 'Programs', href: '/programs',
+    children: [
+      { label: 'All Programs', href: '/programs' },
+      { label: 'Contract Bidding', href: '/programs/contracts' },
+      { label: 'Succession Planning', href: '/succession' },
+    ],
+  },
+  { label: 'Directory', href: '/directory' },
+  { label: 'Contact', href: '/contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="header-brand">
+      <img src="/seal.svg" alt="" class="header-crest" width="44" height="44" />
+      <img src="/logo-wordmark-stack.svg" alt={business.name} class="header-wordmark" height="36" />
+    </a>
+
+    <nav class="header-nav" aria-label="Main navigation">
+      <ul class="nav-list">
+        {navLinks.map(link => (
+          <li class:list={[{ 'has-dropdown': !!link.children }]}>
+            <a
+              href={link.href}
+              class:list={['nav-link', { active: currentPath.startsWith(link.href) || (link.children && link.children.some(c => currentPath.startsWith(c.href))) }]}
+            >
+              {link.label}
+              {link.children && <span class="dropdown-arrow" aria-hidden="true">&#9662;</span>}
+            </a>
+            {link.children && (
+              <ul class="dropdown">
+                {link.children.map(child => (
+                  <li>
+                    <a
+                      href={child.href}
+                      class:list={['dropdown-link', { active: currentPath === child.href || currentPath === child.href + '/' }]}
+                    >
+                      {child.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <a href={`tel:${business.telephone}`} class="header-phone">
+      {business.telephoneDisplay}
+    </a>
+
+    <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding-block: 0.75rem;
+  }
+
+  .header-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .header-crest {
+    width: 44px;
+    height: 44px;
+  }
+
+  .header-wordmark {
+    height: 36px;
+    width: auto;
+  }
+
+  .header-nav {
+    margin-left: auto;
+  }
+
+  .nav-list {
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    border-radius: 4px;
+    transition: color 0.15s, background 0.15s;
+  }
+
+  .nav-link:hover {
+    color: var(--color-primary);
+    background: var(--color-primary-light);
+  }
+
+  .nav-link.active {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .dropdown-arrow {
+    font-size: 0.6rem;
+    opacity: 0.5;
+    transition: transform 0.15s;
+  }
+
+  /* Dropdown */
+  .has-dropdown {
+    position: relative;
+  }
+
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 0.35rem 0;
+    z-index: 200;
+  }
+
+  .has-dropdown:hover .dropdown,
+  .has-dropdown:focus-within .dropdown {
+    display: block;
+  }
+
+  .has-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  .dropdown-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    transition: color 0.15s, background 0.15s;
+  }
+
+  .dropdown-link:hover {
+    color: var(--color-primary);
+    background: var(--color-primary-light);
+  }
+
+  .dropdown-link.active {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .header-phone {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .header-phone:hover {
+    color: var(--color-primary-dark);
+  }
+
+  .mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .mobile-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-text);
+    transition: transform 0.2s;
+  }
+
+  @media (max-width: 900px) {
+    .header-nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border-bottom: 1px solid var(--color-border);
+      padding: 1rem 1.5rem;
+    }
+
+    .header-nav.open {
+      display: block;
+    }
+
+    .nav-list {
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .nav-link {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .dropdown-arrow { display: none; }
+
+    .dropdown {
+      display: block;
+      position: static;
+      box-shadow: none;
+      border: none;
+      padding: 0;
+      min-width: 0;
+    }
+
+    .dropdown-link {
+      padding: 0.6rem 0 0.6rem 1.25rem;
+      border-bottom: 1px solid var(--color-border);
+      font-size: 0.85rem;
+    }
+
+    .header-phone {
+      display: none;
+    }
+
+    .mobile-toggle {
+      display: flex;
+      margin-left: auto;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector('.mobile-toggle');
+  const nav = document.querySelector('.header-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+  }
+</script>
