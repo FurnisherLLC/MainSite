@@ -1,6 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
 import business from '../data/business.json';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog');
+const featuredPost = allPosts.find(p => p.data.featured);
 ---
 
 <Base
@@ -24,6 +28,27 @@ import business from '../data/business.json';
       </div>
     </div>
   </section>
+
+  <!-- Featured Video -->
+  {featuredPost && (
+    <section class="section featured-video-section">
+      <div class="container featured-video-inner">
+        <div class="featured-video-text">
+          <span class="featured-label">Featured</span>
+          <h2>{featuredPost.data.title}</h2>
+          <hr class="divider" />
+          <p>{featuredPost.data.description}</p>
+          <a href={`/blog/${featuredPost.id}`} class="btn btn-primary">Watch the Interview</a>
+        </div>
+        <div class="featured-video-preview" aria-hidden="true">
+          <div class="play-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48"><circle cx="12" cy="12" r="10" fill="var(--color-primary)" opacity="0.15"/><polygon points="10,8 18,12 10,16" fill="var(--color-primary)"/></svg>
+          </div>
+          <p class="featured-video-hint">Member story &amp; interview</p>
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- Core Benefits -->
   <section class="section">
@@ -200,6 +225,69 @@ import business from '../data/business.json';
   .btn-hero-outline:hover {
     background: #fff;
     color: var(--color-primary);
+  }
+
+  /* Featured Video */
+  .featured-video-section {
+    background: var(--color-bg-alt);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .featured-video-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .featured-label {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    margin-bottom: 0.85rem;
+  }
+
+  .featured-video-text h2 {
+    margin-bottom: 0.5rem;
+  }
+
+  .featured-video-text p {
+    color: var(--color-text-muted);
+    font-size: 1.02rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    max-width: 560px;
+  }
+
+  .featured-video-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 2.5rem 3rem;
+    min-width: 180px;
+  }
+
+  .featured-video-hint {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    text-align: center;
+  }
+
+  @media (max-width: 640px) {
+    .featured-video-inner {
+      grid-template-columns: 1fr;
+    }
+    .featured-video-preview { display: none; }
   }
 
   /* Benefits */

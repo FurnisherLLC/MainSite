@@ -1,0 +1,160 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+const allPosts = await getCollection('blog');
+const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+---
+
+<Base
+  title="Blog"
+  description="Industry news, pricing analysis, and practical guidance for upholstery business owners from the North American Upholstery Guild."
+>
+  <section class="page-header noise-grain">
+    <div class="container">
+      <h1>Blog</h1>
+      <hr class="divider divider-center page-divider" />
+      <p class="page-subtitle">
+        Industry news, pricing trends, and practical guidance for upholstery business owners.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <ul class="post-list">
+        {posts.map(post => (
+          <li class="post-card">
+            <div class="post-meta">
+              <time datetime={post.data.pubDate.toISOString()}>
+                {formatDate(post.data.pubDate)}
+              </time>
+              {post.data.type === 'video' && (
+                <span class="badge-video">Video</span>
+              )}
+            </div>
+            <h2 class="post-title">
+              <a href={`/blog/${post.id}`}>{post.data.title}</a>
+            </h2>
+            <p class="post-description">{post.data.description}</p>
+            {post.data.tags && (
+              <ul class="tag-list">
+                {post.data.tags.map(tag => (
+                  <li class="tag">{tag}</li>
+                ))}
+              </ul>
+            )}
+            <a href={`/blog/${post.id}`} class="read-more">
+              Read more <span aria-hidden="true">&rarr;</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-header {
+    background: var(--color-primary);
+    color: #fff;
+    padding: 3.5rem 0;
+    text-align: center;
+  }
+
+  .page-header h1 { color: #fff; margin-bottom: 0.75rem; }
+  .page-divider { background: var(--color-accent); margin-bottom: 1rem; }
+  .page-subtitle { font-size: 1.1rem; opacity: 0.9; }
+
+  .post-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 800px;
+  }
+
+  .post-card {
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .post-card:first-child {
+    padding-top: 0;
+  }
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .post-meta time {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-family: var(--font-body);
+  }
+
+  .badge-video {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    background: var(--color-accent);
+    color: #fff;
+    padding: 0.2rem 0.55rem;
+    border-radius: 3px;
+  }
+
+  .post-title {
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    margin-bottom: 0.6rem;
+  }
+
+  .post-title a {
+    color: var(--color-text);
+    transition: color 0.15s;
+  }
+
+  .post-title a:hover {
+    color: var(--color-primary);
+  }
+
+  .post-description {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    color: var(--color-primary);
+    background: var(--color-primary-light);
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+
+  .read-more {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    transition: color 0.15s;
+  }
+
+  .read-more:hover {
+    color: var(--color-primary-dark);
+  }
+</style>

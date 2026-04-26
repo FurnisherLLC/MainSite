@@ -13,6 +13,7 @@ const navLinks = [
     ],
   },
   { label: 'Directory', href: '/directory' },
+  { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -55,10 +56,6 @@ const currentPath = Astro.url.pathname;
         ))}
       </ul>
     </nav>
-
-    <a href={`tel:${business.telephone}`} class="header-phone">
-      {business.telephoneDisplay}
-    </a>
 
     <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false">
       <span></span>
@@ -185,18 +182,6 @@ const currentPath = Astro.url.pathname;
     font-weight: 600;
   }
 
-  .header-phone {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--color-primary);
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
-  .header-phone:hover {
-    color: var(--color-primary-dark);
-  }
-
   .mobile-toggle {
     display: none;
     flex-direction: column;
@@ -256,10 +241,6 @@ const currentPath = Astro.url.pathname;
       padding: 0.6rem 0 0.6rem 1.25rem;
       border-bottom: 1px solid var(--color-border);
       font-size: 0.85rem;
-    }
-
-    .header-phone {
-      display: none;
     }
 
     .mobile-toggle {
