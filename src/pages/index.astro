@@ -29,27 +29,6 @@ const featuredPost = allPosts.find(p => p.data.featured);
     </div>
   </section>
 
-  <!-- Featured Video -->
-  {featuredPost && (
-    <section class="section featured-video-section">
-      <div class="container featured-video-inner">
-        <div class="featured-video-text">
-          <span class="featured-label">Featured</span>
-          <h2>{featuredPost.data.title}</h2>
-          <hr class="divider" />
-          <p>{featuredPost.data.description}</p>
-          <a href={`/blog/${featuredPost.id}`} class="btn btn-primary">Watch the Interview</a>
-        </div>
-        <div class="featured-video-preview" aria-hidden="true">
-          <div class="play-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48"><circle cx="12" cy="12" r="10" fill="var(--color-primary)" opacity="0.15"/><polygon points="10,8 18,12 10,16" fill="var(--color-primary)"/></svg>
-          </div>
-          <p class="featured-video-hint">Member story &amp; interview</p>
-        </div>
-      </div>
-    </section>
-  )}
-
   <!-- Core Benefits -->
   <section class="section">
     <div class="container">
